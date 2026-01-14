@@ -1,1 +1,12 @@
+# Compiled / executables
+*.o
+*.out
+*.exe
+a.out
 
+# Logs
+*.log
+
+# OS junk
+.DS_Store
+Thumbs.db
