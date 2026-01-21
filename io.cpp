@@ -75,3 +75,8 @@ void sort(PhoneRec* view[], size_t recordCount, bool sortByLastName) {
             PhoneRec* temp = view[i];
             view[i] = view[j];
             view[j] = temp;
+         }
+      }
+   }
+}
+}
