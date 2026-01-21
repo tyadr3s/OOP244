@@ -8,10 +8,10 @@ using namespace std;
 namespace seneca {
 
    void read(char* name) {
-      cout << "name>\n ";
-      cin >> name;
-      return;
-   }
+   cout << "Name" << endl;
+   cin >> name;
+}
+
 
    void print(long long phoneNumber) {
       long long first3numbers = phoneNumber / 10000000;         
