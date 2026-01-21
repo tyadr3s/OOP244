@@ -9,6 +9,7 @@ namespace seneca {
 
    void read(char* name) {
    cout << "Name" << endl;
+   cout << "> ";
    cin >> name;
 }
 
