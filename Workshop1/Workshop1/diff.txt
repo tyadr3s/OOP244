@@ -1,0 +1,14 @@
+In line number 145 of your output:
+The output should be:
+> Sim
+^
+But your output is: 
+Sim
+^
+
+Unmatched character details:
+The character in column 1 is supposed to be:
+  [>] ASCII code(62)
+but you printed
+  [S] ASCII code(83)
+

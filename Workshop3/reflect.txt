@@ -1,0 +1,4 @@
+ In this workshop I learned a lot about dynamic memory . I liked practicing with new and delete and understanding
+ why arrays need to be recreated when their size changes. Working on the dma.cpp helped me see how data can be added
+ in parts and managed safely. This workshop was really interesting, I really like to do Workshops  because in
+ this topic everything become clearer for me and helped me feel more confident using pointers without causing memory leaks.

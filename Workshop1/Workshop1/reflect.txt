@@ -1,0 +1,3 @@
+I liked this workshop because it helped me to practice different parts of a C++ and make a program that works together. I learned
+ too much about C++,for example how to use arrays and pointers properly, so yeah I loved this activity, especially the final
+ output, it was funny seeing the name of the simpsons there.
