@@ -107,43 +107,31 @@ namespace seneca {
    
    const char Account::operator[](int index) const {
    int len = 0;
-
    while (m_holderName[len] != char(0)) {
       len++;
    }
-
-   if (len == 0) {
-      return m_holderName[0];
+   if (index < 0 || index >= len) {
+      return ' ';
    }
-
-   if (index < 0) {
-      index = -index;
-   }
-
-   index = index % len;
-
    return m_holderName[index];
 }
+
 
    char& Account::operator[](int index) {
-   int len = 0;
+   static char space = ' ';
 
+   int len = 0;
    while (m_holderName[len] != char(0)) {
       len++;
    }
 
-   if (len == 0) {
-      return m_holderName[0];
+   if (index < 0 || index >= len) {
+      return space;
    }
-
-   if (index < 0) {
-      index = -index;
-   }
-
-   index = index % len;
 
    return m_holderName[index];
 }
+
 
 
    Account& Account::operator=(int number) {
