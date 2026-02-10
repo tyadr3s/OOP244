@@ -119,18 +119,17 @@ namespace seneca {
 
    char& Account::operator[](int index) {
    static char space = ' ';
+   space = ' ';
 
    int len = 0;
-   while (m_holderName[len] != char(0)) {
-      len++;
-   }
+   while (m_holderName[len]) len++;
 
    if (index < 0 || index >= len) {
       return space;
    }
-
    return m_holderName[index];
 }
+
 
 
 
