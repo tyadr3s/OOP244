@@ -31,7 +31,7 @@ namespace seneca {
       MenuItem& operator=(const MenuItem&) = delete;
 
       operator bool() const;
-      ostream& display(ostream& ostr = cout) const;
+      std::ostream& display(std::ostream& ostr = std::cout) const;
    };
 }
 #endif
