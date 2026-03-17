@@ -69,7 +69,6 @@ namespace seneca {
     ostream& Professor::write(ostream& ostr) const {
         char formatTemp[21]{};
         
-        ostr << " ";
         Employee::write(ostr);
         
         if (m_subject) {
