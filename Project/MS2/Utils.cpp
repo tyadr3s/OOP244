@@ -22,6 +22,7 @@ Revision History
 -----------------------------------------------------------
 Date      Reason
 2026/03/23  Added getInt() and getInt(min, max) functions
+2026/03/23  Fix a mistake
 -----------------------------------------------------------
 I have done all the coding by myself except the parts that were
 provided by my professor as part of the project template.
@@ -103,3 +104,4 @@ int Utils::getInt() const {
       }
       return value;
    }
+}
