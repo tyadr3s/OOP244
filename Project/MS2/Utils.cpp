@@ -12,6 +12,20 @@
 //
 /////////////////////////////////////////////////////////////////
 ***********************************************************************/
+/* Citation and Sources...
+Final Project Milestone 2
+Module: Utils
+Filename: Utils.cpp
+Version 1.0
+Author: Carlos Andres Ramirez Moreno, StNo: 120847256, Email: caramirez-moreno@myseneca.ca
+Revision History
+-----------------------------------------------------------
+Date      Reason
+2026/03/23  Added getInt() and getInt(min, max) functions
+-----------------------------------------------------------
+I have done all the coding by myself except the parts that were
+provided by my professor as part of the project template.
+-----------------------------------------------------------*/
 #include <iostream>
 #include "Utils.h"
 using namespace std;
@@ -54,5 +68,33 @@ namespace seneca {
       }
       return cstring && *cstring == 0;
    }
+   
+   int Utils::getInt() const {
+      int value;
+      while (true) {
+         cin >> value;
+         if (cin.fail()) {
+            cout << "Invalid integer: ";
+            cin.clear();
+            cin.ignore(1000, '\n');
+         }
+         else if (cin.peek() != '\n') {
+            cout << "Only an integer please: ";
+            cin.ignore(1000, '\n');
+         }
+         else {
+            return value;
+         }
+      }
+   }
+   
+int Utils::getInt(int min, int max) const {
+   int value = getInt();
 
+   while (value < min || value > max) {
+      cout << "Invalid value: [" << min << " <= value <= " << max << "], try again: ";
+      value = getInt();
+   }
+
+   return value;
 }
