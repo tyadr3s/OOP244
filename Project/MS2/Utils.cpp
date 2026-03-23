@@ -69,32 +69,37 @@ namespace seneca {
       return cstring && *cstring == 0;
    }
    
-   int Utils::getInt() const {
-      int value;
-      while (true) {
-         cin >> value;
-         if (cin.fail()) {
-            cout << "Invalid integer: ";
-            cin.clear();
-            cin.ignore(1000, '\n');
-         }
-         else if (cin.peek() != '\n') {
-            cout << "Only an integer please: ";
-            cin.ignore(1000, '\n');
-         }
-         else {
-            return value;
-         }
+int Utils::getInt() const {
+   int value;
+   while (true) {
+      if (cin.peek() == '\n') {
+         cout << "You must enter a value: ";
+         cin.get();
+         continue;
+      }
+      cin >> value;
+      if (cin.fail()) {
+         cout << "Invalid integer: ";
+         cin.clear();
+         cin.ignore(1000, '\n');
+      }
+      else if (cin.peek() != '\n') {
+         cout << "Only an integer please: ";
+         cin.ignore(1000, '\n');
+      }
+      else {
+         cin.get();
+         return value;
       }
    }
-   
-int Utils::getInt(int min, int max) const {
-   int value = getInt();
-
-   while (value < min || value > max) {
-      cout << "Invalid value: [" << min << " <= value <= " << max << "], try again: ";
-      value = getInt();
-   }
-
-   return value;
 }
+   
+   int Utils::getInt(int min, int max) const {
+      int value = getInt();
+      
+      while (value < min || value > max) {
+         cout << "Invalid value: [" << min << " <= value <= " << max << "], try again: ";
+         value = getInt();
+      }
+      return value;
+   }
