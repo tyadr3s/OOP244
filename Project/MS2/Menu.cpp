@@ -48,7 +48,7 @@ namespace seneca {
          ostr << "??????????";
       }
       else {
-         for (int i = 0; i < m_indentation * m_indentationSize; i++) {
+         for (unsigned int i = 0; i < m_indentation * m_indentationSize; i++) {
             ostr << ' ';
          }
             
@@ -72,13 +72,13 @@ namespace seneca {
       m_indentationSize = indentationSize;
       m_numItems = 0;
       
-      for (int i = 0; i < MaximumNumberOfMenuItems; i++) {
+      for (unsigned int i = 0; i < MaximumNumberOfMenuItems; i++) {
          m_items[i] = nullptr;
       }
    }
    
    Menu::~Menu() {
-      for (int i = 0; i < m_numItems; i++) {
+      for (unsigned int i = 0; i < m_numItems; i++) {
          delete m_items[i];
          m_items[i] = nullptr;
       }
@@ -96,7 +96,7 @@ namespace seneca {
          m_title.display() << endl;
       }
 
-      for (int i = 0; i < m_numItems; i++) {
+      for (unsigned int i = 0; i < m_numItems; i++) {
          m_items[i]->display() << endl;
       }
 
