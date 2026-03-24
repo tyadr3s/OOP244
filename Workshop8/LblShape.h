@@ -21,6 +21,7 @@ course materials provided by my professor.
 #ifndef SENECA_LABELEDSHAPE_H
 #define SENECA_LABELEDSHAPE_H
 #include "Shape.h"
+#include <iostream>
 
 namespace seneca {
 
