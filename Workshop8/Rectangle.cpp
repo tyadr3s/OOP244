@@ -59,19 +59,19 @@ namespace seneca {
 
          os << '+';
          for (int i = 0; i < m_width - 2; i++) os << '-';
-         os << '+';
-
+         os << '+' << '\n';
+         
          os << '|';
          os << label();
          for (int i = 0; i < m_width - 2 - (int)strlen(label()); i++) os << ' ';
          os << '|' << '\n';
-
+         
          for (int i = 0; i < m_height - 3; i++) {
             os << '|';
             for (int j = 0; j < m_width - 2; j++) os << ' ';
             os << '|' << '\n';
          }
-
+         
          os << '+';
          for (int i = 0; i < m_width - 2; i++) os << '-';
          os << '+' << '\n';
