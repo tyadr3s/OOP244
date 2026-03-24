@@ -25,7 +25,7 @@ int main() {
    cout << Line();
    cout << "------------------------------------" << endl;
    cout << "Rectangle size correction:" << endl;
-   cout << Rectangle("Bas Size", 1, 1);
+   cout << Rectangle("Bas Size", 1, 1) << endl;
    Line* L = new Line("Separator", 50);
    Rectangle* R = new Rectangle("Container", 30, 5);
    Shape* S[2] = { L, R };
