@@ -74,7 +74,7 @@ namespace seneca {
          
          os << '+';
          for (int i = 0; i < m_width - 2; i++) os << '-';
-         os << '+' << '\n';
+         os << '+';
       }
    }
 
