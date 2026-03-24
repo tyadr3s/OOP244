@@ -44,9 +44,8 @@ namespace seneca {
     }
 
    void LblShape::getSpecs(std::istream& is) {
-    char temp[81];
-    is.getline(temp, 81, ',');
-    delete[] m_label;
-    ut.alocpy(m_label, temp);
+   char temp[81];
+   is.getline(temp, 81, ',');
+   ut.alocpy(m_label, temp);
 }
 }
