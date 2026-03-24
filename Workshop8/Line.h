@@ -22,7 +22,7 @@ course materials provided by my professor.
 
 #ifndef SENECA_LINE_H
 #define SENECA_LINE_H
-
+#include "LblShape.h"
 
 namespace seneca {
 
