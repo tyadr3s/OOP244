@@ -18,10 +18,9 @@ I have done all the coding by myself and only used the
 course materials provided by my professor.
 -----------------------------------------------------------
 */
-#include "Shape.h"
 #ifndef SENECA_LABELEDSHAPE_H
 #define SENECA_LABELEDSHAPE_H
-
+#include "Shape.h"
 
 namespace seneca {
 
