@@ -1,8 +1,23 @@
+/* Citation and Sources...
+-----------------------------------------------------------
+Workshop 9 
+Module: Transcript
+Filename: Transcript.h
+Version 1.0
+Author: Carlos Andres Ramirez Moreno, StNo: 120847256, Email: caramirez-moreno@myseneca.ca
+Revision History
+-----------------------------------------------------------
+2026/03/26  Completed Transcript class
+-----------------------------------------------------------
+I have done all the coding by myself and only used the code that my professor provided to complete this workshop.
+-----------------------------------------------------------
+*/
+
 /***********************************************************************
 // OOP244 workshop 9, Transcript module
 //
 // File	Transcript.h
-// Version 1.1
+// Version 1.0
 // started by Fardad
 // Description
 //
@@ -12,6 +27,7 @@
 // Carlos Ramirez  2026/03/26      Completed Transcript class
 /////////////////////////////////////////////////////////////////
 ***********************************************************************/
+*/
 
 #ifndef SENECA_TRANSCRIPT_H
 #define SENECA_TRANSCRIPT_H
