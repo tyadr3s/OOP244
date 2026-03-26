@@ -24,10 +24,8 @@ I have done all the coding by myself and only used the code that my professor pr
 // Revision History
 // -----------------------------------------------------------
 // Name            Date            Reason
-// Carlos Ramirez  2026/03/26      Completed Transcript class
 /////////////////////////////////////////////////////////////////
 ***********************************************************************/
-*/
 
 #ifndef SENECA_TRANSCRIPT_H
 #define SENECA_TRANSCRIPT_H
