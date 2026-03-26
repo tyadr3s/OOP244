@@ -46,7 +46,7 @@ namespace seneca {
     
     ostream& Transcript::display(ostream& os) const {
         os << m_studentName << " (" << m_studentNumber << ")" << endl;
-        os << "------------------------------------------------------------------------------" << endl;
+        os << "--------------------------------------------------------------------------" << endl;
         Marks::display(os);
         return os;
     }
