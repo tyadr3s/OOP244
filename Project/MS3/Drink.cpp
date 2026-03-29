@@ -67,7 +67,10 @@ namespace seneca {
    bool Drink::order() {
       Menu m("Drink Size Selection", "Back", 3);
 
-      m << "Small" << "Medium" << "Large" << "Extra Large";
+      m << "Small";
+      m << "Medium";
+      m << "Large";
+      m << "Extra Large";
 
       size_t sel = cout << m;
 
@@ -95,19 +98,17 @@ namespace seneca {
    }
 
    ifstream& Drink::read(ifstream& file) {
-      char name[1000];
-      double price;
-
-      if (file.getline(name, 1000, ',')) {
-         file >> price;
+      char tempName[1000];
+      double tempPrice;
+      if (file.getline(tempName, 1000, ',')) {
+         file >> tempPrice;
          if (file) {
             file.ignore(1000, '\n');
-            this->name(name);
-            Billable::price(price);
+            name(tempName);
+            Billable::price(tempPrice);
             m_size = 0;
          }
       }
-
       return file;
    }
 
