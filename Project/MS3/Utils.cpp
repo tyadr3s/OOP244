@@ -1,17 +1,3 @@
-/***********************************************************************
-// OOP244 Project, Utils Module
-//
-// File	Utils.h
-// Version 0.1
-// started by Fardad
-// Description
-// utility function to be used in the project
-// Revision History
-// -----------------------------------------------------------
-// Name            Date            Reason
-//
-/////////////////////////////////////////////////////////////////
-***********************************************************************/
 /* Citation and Sources...
 Final Project Milestone 2
 Module: Utils
@@ -26,7 +12,23 @@ Date      Reason
 -----------------------------------------------------------
 I have done all the coding by myself except the parts that were
 provided by my professor as part of the project template.
+
 -----------------------------------------------------------*/
+/***********************************************************************
+// OOP244 Project, Utils Module
+//
+// File	Utils.h
+// Version 0.1
+// started by Fardad
+// Description
+// utility function to be used in the project
+// Revision History
+// -----------------------------------------------------------
+// Name            Date            Reason
+//
+/////////////////////////////////////////////////////////////////
+***********************************************************************/
+
 #include <iostream>
 #include "Utils.h"
 using namespace std;
