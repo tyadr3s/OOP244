@@ -60,6 +60,7 @@ namespace seneca {
             ostr << n[i];
          }
       }
+
       else {
          i = 0;
       }
@@ -72,10 +73,12 @@ namespace seneca {
          if (m_child) {
             ostr << "Child";
          }
+
          else {
             ostr << "Adult";
          }
       }
+
       else {
          ostr << ".....";
       }
@@ -84,6 +87,7 @@ namespace seneca {
 
       if (&ostr == &cout && m_customize != nullptr) {
          ostr << " >> ";
+
          for (int j = 0; m_customize[j] && j < 30; j++) {
             ostr << m_customize[j];
          }
@@ -141,6 +145,7 @@ namespace seneca {
 
       if (file.getline(tempName, 1000, ',')) {
          file >> tempPrice;
+         
          if (file) {
             file.ignore(1000, '\n');
             name(tempName);
