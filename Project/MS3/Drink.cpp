@@ -52,6 +52,9 @@ namespace seneca {
          else {
             ostr << "XLR..";
          }
+         else {
+            ostr << ".....";
+         }
       }
       ostr << right << setw(7) << fixed << setprecision(2) << price();
       return ostr;
