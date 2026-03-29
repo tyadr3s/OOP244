@@ -58,7 +58,10 @@ namespace seneca {
    }
 
    std::ostream& operator<<(std::ostream& ostr, const Billable& B) {
-      return B.print(ostr);
+      if ((const char*)B) {
+         ostr << (const char*)B;
+      }
+      return ostr;
    }
 
    double operator+(double money, const Billable& B) {
