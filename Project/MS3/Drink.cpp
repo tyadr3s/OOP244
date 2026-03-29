@@ -28,6 +28,13 @@ namespace seneca {
 
    ostream& Drink::print(ostream& ostr) const {
       const char* n = (const char*)(*this);
+      if (!ordered()) {
+         if (n) {
+            ostr << n;
+         }
+         return ostr;
+      }
+
       int i;
 
       if (n) {
