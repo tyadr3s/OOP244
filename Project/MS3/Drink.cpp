@@ -35,7 +35,7 @@ namespace seneca {
             i++;
          }
       }
-      while (i < 28) {
+      while (i < 33) {
          ostr << '.';
          i++;
       }
@@ -54,7 +54,7 @@ namespace seneca {
          }
       }
       else {
-         ostr << "     ";
+         ostr << " ";
       }
       ostr << right << setw(7) << fixed << setprecision(2) << price();
       return ostr;
