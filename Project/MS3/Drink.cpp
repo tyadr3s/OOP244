@@ -28,13 +28,6 @@ namespace seneca {
    
    ostream& Drink::print(ostream& ostr) const {
       const char* n = (const char*)(*this);
-      
-      if (!ordered()) {
-         if (n) {
-            ostr << n;
-         }
-         return ostr;
-      }
       int i = 0;
       if (n) {
          while (n[i] && i < 25) {
@@ -42,16 +35,27 @@ namespace seneca {
             i++;
          }
       }
-      
       while (i < 28) {
          ostr << '.';
          i++;
       }
-      
-      if (m_size == 'S') ostr << "SML..";
-      else if (m_size == 'M') ostr << "MID..";
-      else if (m_size == 'L') ostr << "LRG..";
-      else ostr << "XLR..";
+      if (ordered()) {
+         if (m_size == 'S') {
+            ostr << "SML..";
+         }
+         else if (m_size == 'M') {
+            ostr << "MID..";
+         }
+         else if (m_size == 'L') {
+            ostr << "LRG..";
+         }
+         else {
+            ostr << "XLR..";
+         }
+      }
+      else {
+         ostr << "     ";
+      }
       ostr << right << setw(7) << fixed << setprecision(2) << price();
       return ostr;
    }
