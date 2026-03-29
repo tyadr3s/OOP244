@@ -65,7 +65,7 @@ namespace seneca {
 
       m << "Small";
       m << "Medium";
-      m << "Large";
+      m << "Larg";
       m << "Extra Large";
 
       size_t sel = cout << m;
