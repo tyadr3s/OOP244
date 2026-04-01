@@ -1,5 +1,5 @@
 /* Citation and Sources...
-Final Project Milestone 2
+Final Project Milestone 4
 Module: Utils
 Filename: Utils.cpp
 Version 1.0
@@ -7,8 +7,7 @@ Author: Carlos Andres Ramirez Moreno, StNo: 120847256, Email: caramirez-moreno@m
 Revision History
 -----------------------------------------------------------
 Date      Reason
-2026/03/23  Added getInt() and getInt(min, max) functions
-2026/03/23  Fix a mistake
+2026/04/01  Added makeBillFileName 
 -----------------------------------------------------------
 I have done all the coding by myself except the parts that were
 provided by my professor as part of the project template.
@@ -105,5 +104,30 @@ int Utils::getInt() const {
          value = getInt();
       }
       return value;
+   }
+   
+   char* Utils::makeBillFileName(char* filename, size_t billNo)const {
+      char billFileName[21] = "bill_";
+      size_t temp = billNo;
+      int cnt = 5;
+      int length;
+      do {
+         cnt++;
+         temp /= 10;
+      } while (temp > 0);
+      length = cnt;
+      while (billNo > 0) {
+         billFileName[--cnt] = (billNo % 10) + '0';
+         billNo /= 10;
+      }
+      if (billFileName[cnt - 1] == '\0') {
+         billFileName[--cnt] = '0';
+      }
+      for (int i = 0; ".txt"[i]; i++) {
+         billFileName[length++] = ".txt"[i];
+      }
+      billFileName[length] = '\0';
+      strcpy(filename, billFileName);
+      return filename;
    }
 }
