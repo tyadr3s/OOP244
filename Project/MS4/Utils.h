@@ -1,5 +1,5 @@
 /* Citation and Sources...
-Final Project Milestone 2
+Final Project Milestone 4
 Module: Utils
 Filename: Utils.h
 Version 1.0
@@ -7,7 +7,7 @@ Author: Carlos Andres Ramirez Moreno, StNo: 120847256, Email: caramirez-moreno@m
 Revision History
 -----------------------------------------------------------
 Date      Reason
-2026/03/23  Declared getInt() and getInt(min, max) functions
+2026/04/01  Declared makeBillFileName 
 -----------------------------------------------------------
 I have done all the coding by myself except the parts that were
 provided by my professor as part of the project template.
