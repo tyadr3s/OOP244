@@ -44,10 +44,12 @@ int main(){
             if (sel == 1){
                 do {
                     orderSel = cout<< orderMenu;
-                    if (orderSel == 2){
+                    if (orderSel == 1) {
+                        order.orderFood();
+                    }
+                    else if (orderSel == 2) {
                         order.orderDrink();
                     }
-
                 } while (orderSel != 0);
             }
             else if (sel == 4){
