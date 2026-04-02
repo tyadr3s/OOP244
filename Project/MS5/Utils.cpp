@@ -100,7 +100,7 @@ int Utils::getInt() const {
       int value = getInt();
       
       while (value < min || value > max) {
-         cout << "Invalid value: [" << min << " <= value <= " << max << "], try again: ";
+         cout << "Invalid value: [" << min << "<= value <=" << max << "], try again: ";
          value = getInt();
       }
       return value;
