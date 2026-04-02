@@ -7,7 +7,7 @@ Author: Carlos Andres Ramirez Moreno, StNo: 120847256, Email: caramirez-moreno@m
 Revision History
 -----------------------------------------------------------
 Date      Reason
-2026/04/02  Implemented m51 main menu
+2026/04/02  Implemented m52 main menu and order drink
 -----------------------------------------------------------
 I have done all the coding by myself and only used the project instructions
 and course materials provided by my professor.
@@ -21,29 +21,43 @@ using namespace std;
 using namespace seneca;
 
 int main(){
-   Ordering order("drinks.csv", "foods.csv");
+    Ordering order("drinks.csv", "foods.csv");
+    
+    if (!order){
+        cout << "Failed to open data files or the data files are corrupted!" << endl;
+    }else{
+        Menu mainMenu("Seneca Restaurant ", "End Program");
+        mainMenu<< "Order";
+        mainMenu<< "Print Bill";
+        mainMenu<< "Start a New Bill";
+        mainMenu<< "List Foods";
+        mainMenu<< "List Drinks";
 
-   if (!order){
-      cout<< "Failed to open data files or the data files are corrupted!" << endl;
-   }else{
-      Menu mainMenu("Seneca Restaurant ", "End Program");
-      mainMenu<< "Order";
-      mainMenu<< "Print Bill";
-      mainMenu<< "Start a New Bill";
-      mainMenu<< "List Foods";
-      mainMenu<< "List Drinks";
-      size_t sel = 0;
+        Menu orderMenu("Order Menu", "Back to main menu", 1);
+        orderMenu<< "Food";
+        orderMenu<< "Drink";
 
-      do{
-         sel = cout << mainMenu;
+        size_t sel = 0;
+        size_t orderSel = 0;
+        do{
+            sel = cout<< mainMenu;
+            if (sel == 1){
+                do {
+                    orderSel = cout<< orderMenu;
+                    if (orderSel == 2){
+                        order.orderDrink();
+                    }
 
-         if (sel == 4){
-            order.listFoods();
-         } else if (sel == 5){
-            order.listDrinks();
-         }
+                } while (orderSel != 0);
+            }
+            else if (sel == 4){
+                order.listFoods();
+            }
+            else if (sel == 5){
+                order.listDrinks();
+            }
 
-      }while (sel != 0);
-   }
-   return 0;
+        }while (sel != 0);
+    }
+    return 0;
 }
