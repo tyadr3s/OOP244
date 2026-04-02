@@ -7,7 +7,7 @@ Author: Carlos Andres Ramirez Moreno, StNo: 120847256, Email: caramirez-moreno@m
 Revision History
 -----------------------------------------------------------
 Date      Reason
-2026/04/02  Added reset bill and exit confirmation for MS5
+2026/04/02  Added reset bill and exit confirmation for MS55
 -----------------------------------------------------------
 I have done all the coding by myself and only used the project instructions
 and course materials provided by my professor.
