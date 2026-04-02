@@ -26,7 +26,7 @@ int main(){
    if (!order){
       cout<< "Failed to open data files or the data files are corrupted!" << endl;
    }else{
-      Menu mainMenu("Seneca Restaurant", "End Program");
+      Menu mainMenu("Seneca Restaurant ", "End Program");
       mainMenu<< "Order";
       mainMenu<< "Print Bill";
       mainMenu<< "Start a New Bill";
