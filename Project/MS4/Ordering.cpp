@@ -57,7 +57,7 @@ namespace seneca{
         m_foods = nullptr;
         m_drinks = nullptr;
         
-        for(int i = 0; i < MaximumNumberOfBillItems; i++){
+        for(unsigned int i = 0; i < MaximumNumberOfBillItems; i++){
             m_items[i] = nullptr;
         }
         size_t drinkCount = countRecords(drinkFile);
@@ -107,7 +107,7 @@ namespace seneca{
     Ordering::~Ordering(){
         delete[] m_foods;
         delete[] m_drinks;
-        for (int i = 0; i < m_noOfItems; i++){
+        for (unsigned int i = 0; i < m_noOfItems; i++){
             delete m_items[i];
             m_items[i] = nullptr;
         }
@@ -128,7 +128,7 @@ namespace seneca{
         cout<< "List Of Avaiable Meals" << endl;
         cout<< "========================================" << endl;
 
-        for (int i = 0; i < m_noOfFoods; i++){
+        for (unsigned int i = 0; i < m_noOfFoods; i++){
             m_foods[i].print(cout) << endl;
         }
         cout<< "========================================" << endl;
@@ -138,7 +138,7 @@ namespace seneca{
         cout<< "List Of Available Drinks" << endl;
         cout<< "========================================" << endl;
 
-        for (int i = 0; i < m_noOfDrinks; i++){
+        for (unsigned int i = 0; i < m_noOfDrinks; i++){
             m_drinks[i].print(cout) << endl;
         }
         cout<< "========================================" << endl;
@@ -147,7 +147,7 @@ namespace seneca{
     void Ordering::orderFood(){
         Menu foodMenu("Food Menu", "Back to Order", 2);
         
-        for (int i = 0; i < m_noOfFoods; i++){
+        for (unsigned int i = 0; i < m_noOfFoods; i++){
             foodMenu << (const char*)m_foods[i];
         }
         size_t sel = cout<< foodMenu;
@@ -167,7 +167,7 @@ namespace seneca{
     void Ordering::orderDrink(){
         Menu drinkMenu("Drink Menu", "Back to Order", 2);
         
-        for (int i = 0; i < m_noOfDrinks; i++){
+        for (unsigned int i = 0; i < m_noOfDrinks; i++){
             drinkMenu << (const char*)m_drinks[i];
         }
         size_t sel = cout << drinkMenu;
@@ -188,7 +188,7 @@ namespace seneca{
         double total = 0;
         printTitle(os);
         
-        for (int i = 0; i < m_noOfItems; i++){
+        for (unsigned int i = 0; i < m_noOfItems; i++){
             m_items[i]->print(os) << endl;
             total += m_items[i]->price();
         }
@@ -207,7 +207,7 @@ namespace seneca{
         m_billNo++;
         cout<< "Starting bill number " << m_billNo << endl;
         
-        for (int i = 0; i < m_noOfItems; i++){
+        for (unsigned int i = 0; i < m_noOfItems; i++){
             delete m_items[i];
             m_items[i] = nullptr;
         }
