@@ -22,13 +22,13 @@ and course materials provided by my professor.
 using namespace std;
 namespace seneca{
     
-    void Ordering::printTitle(ostream& os) const {
+    void Ordering::printTitle(ostream& os) const{
         os<< "Bill # ";
         os<< setw(3) << setfill('0')<< m_billNo;
         os<< setfill(' ') << " =============================" <<endl;
     }
     
-    void Ordering::printTotal(ostream& os, double total) const {
+    void Ordering::printTotal(ostream& os, double total) const{
         double tax = total * Tax;
         os<< fixed << setprecision(2);
         os<< "                     Total:" << setw(13) << total << endl;
@@ -37,19 +37,19 @@ namespace seneca{
         os<< "========================================" << endl;
     }
     
-    size_t Ordering::countRecords(const char* file) const {
+    size_t Ordering::countRecords(const char* file) const{
         ifstream fin(file);
         size_t count = 0;
         char ch;
-        while (fin.get(ch)) {
-            if (ch == '\n') {
+        while(fin.get(ch)){
+            if(ch == '\n'){
                 count++;
             }
         }
         return count;
     }
     
-    Ordering::Ordering(const char* drinkFile, const char* foodFile) {
+    Ordering::Ordering(const char* drinkFile, const char* foodFile){
         m_noOfFoods = 0;
         m_noOfDrinks = 0;
         m_noOfItems = 0;
@@ -57,99 +57,102 @@ namespace seneca{
         m_foods = nullptr;
         m_drinks = nullptr;
         
-        for (int i = 0; i < MaximumNumberOfBillItems; i++) {
+        for(int i = 0; i < MaximumNumberOfBillItems; i++){
             m_items[i] = nullptr;
         }
-        
         size_t drinkCount = countRecords(drinkFile);
-        size_t foodCount = countRecords(foodFile);        
+        size_t foodCount = countRecords(foodFile);
         ifstream drinkF(drinkFile);
         ifstream foodF(foodFile);
         
-        if (drinkF && foodF) {
+        if (drinkF && foodF){
             m_drinks = new Drink[drinkCount];
             m_foods = new Food[foodCount];
-            for (int i = 0; i < drinkCount; i++) {
-                if (!m_drinks[i].read(drinkF)) {
+            int i;
+            for(i = 0; i < (int)drinkCount; i++){
+                if (!m_drinks[i].read(drinkF)){
                     break;
                 }
             }
-            if (i != drinkCount) {
+            
+            if (i != (int)drinkCount){
                 delete[] m_drinks;
                 delete[] m_foods;
                 m_drinks = nullptr;
                 m_foods = nullptr;
             }
-            else {
-                m_noOfDrinks = drinkCount;
-                for (i = 0; i < foodCount; i++) {
-                    if (!m_foods[i].read(foodF)) {
+            else{
+                m_noOfDrinks = (unsigned int)drinkCount;
+                for (i = 0; i < (int)foodCount; i++){
+                    if (!m_foods[i].read(foodF)){
                         break;
                     }
                 }
-                if (i != foodCount) {
+                
+                if (i != (int)foodCount){
                     delete[] m_drinks;
                     delete[] m_foods;
                     m_drinks = nullptr;
                     m_foods = nullptr;
                     m_noOfDrinks = 0;
+                    m_noOfFoods = 0;
                 }
-                else {
-                    m_noOfFoods = foodCount;
+                else{
+                    m_noOfFoods = (unsigned int)foodCount;
                 }
             }
         }
     }
     
-    Ordering::~Ordering() {
+    Ordering::~Ordering(){
         delete[] m_foods;
         delete[] m_drinks;
-        for (int i = 0; i < m_noOfItems; i++) {
+        for (int i = 0; i < m_noOfItems; i++){
             delete m_items[i];
             m_items[i] = nullptr;
         }
     }
     
-    Ordering::operator bool() const {
+    Ordering::operator bool() const{
         return m_foods && m_drinks;
     }
     
-    unsigned int Ordering::noOfBillItems() const {
+    unsigned int Ordering::noOfBillItems() const{
         return m_noOfItems;
     }
-    bool Ordering::hasUnsavedBill() const {
+    bool Ordering::hasUnsavedBill() const{
         return m_noOfItems > 0;
     }
     
-    void Ordering::listFoods() const {
-        cout << "List Of Avaiable Meals" << endl;
-        cout << "========================================" << endl;
+    void Ordering::listFoods() const{
+        cout<< "List Of Avaiable Meals" << endl;
+        cout<< "========================================" << endl;
 
-        for (int i = 0; i < m_noOfFoods; i++) {
+        for (int i = 0; i < m_noOfFoods; i++){
             m_foods[i].print(cout) << endl;
         }
-        cout << "========================================" << endl;
+        cout<< "========================================" << endl;
     }
     
-    void Ordering::listDrinks() const {
-        cout << "List Of Available Drinks" << endl;
-        cout << "========================================" << endl;
+    void Ordering::listDrinks() const{
+        cout<< "List Of Available Drinks" << endl;
+        cout<< "========================================" << endl;
 
-        for (int i = 0; i < m_noOfDrinks; i++) {
+        for (int i = 0; i < m_noOfDrinks; i++){
             m_drinks[i].print(cout) << endl;
         }
-        cout << "========================================" << endl;
+        cout<< "========================================" << endl;
     }
     
-    void Ordering::orderFood() {
+    void Ordering::orderFood(){
         Menu foodMenu("Food Menu", "Back to Order", 2);
         
-        for (int i = 0; i < m_noOfFoods; i++) {
+        for (int i = 0; i < m_noOfFoods; i++){
             foodMenu << (const char*)m_foods[i];
         }
-        size_t sel = cout << foodMenu;
+        size_t sel = cout<< foodMenu;
 
-        if (sel != 0 && m_noOfItems < MaximumNumberOfBillItems) {
+        if (sel != 0 && m_noOfItems < MaximumNumberOfBillItems){
             Billable* item = new Food(m_foods[sel - 1]);
 
             if (item->order()) {
@@ -161,50 +164,50 @@ namespace seneca{
         }
     }
     
-    void Ordering::orderDrink() {
+    void Ordering::orderDrink(){
         Menu drinkMenu("Drink Menu", "Back to Order", 2);
         
-        for (int i = 0; i < m_noOfDrinks; i++) {
+        for (int i = 0; i < m_noOfDrinks; i++){
             drinkMenu << (const char*)m_drinks[i];
         }
         size_t sel = cout << drinkMenu;
         
-        if (sel != 0 && m_noOfItems < MaximumNumberOfBillItems) {
+        if (sel != 0 && m_noOfItems < MaximumNumberOfBillItems){
             Billable* item = new Drink(m_drinks[sel - 1]);
             
-            if (item->order()) {
+            if (item->order()){
                 m_items[m_noOfItems++] = item;
             }
-            else {
+            else{
                 delete item;
             }
         }
     }
     
-    void Ordering::printBill(ostream& os) const {
-        double total = 0.0;
+    void Ordering::printBill(ostream& os) const{
+        double total = 0;
         printTitle(os);
         
-        for (int i = 0; i < m_noOfItems; i++) {
+        for (int i = 0; i < m_noOfItems; i++){
             m_items[i]->print(os) << endl;
             total += m_items[i]->price();
         }
         printTotal(os, total);
     }
     
-    void Ordering::resetBill() {
+    void Ordering::resetBill(){
         char filename[21];
         ut.makeBillFileName(filename, m_billNo);
         ofstream fout(filename);
         
-        if (fout) {
+        if (fout){
             printBill(fout);
         }
-        cout << "Saved bill number " << m_billNo << endl;
+        cout<< "Saved bill number " << m_billNo << endl;
         m_billNo++;
-        cout << "Starting bill number " << m_billNo << endl;
+        cout<< "Starting bill number " << m_billNo << endl;
         
-        for (int i = 0; i < m_noOfItems; i++) {
+        for (int i = 0; i < m_noOfItems; i++){
             delete m_items[i];
             m_items[i] = nullptr;
         }
