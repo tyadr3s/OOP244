@@ -7,7 +7,7 @@ Author: Carlos Andres Ramirez Moreno, StNo: 120847256, Email: caramirez-moreno@m
 Revision History
 -----------------------------------------------------------
 Date      Reason
-2026/04/02  Added order food option for MS3
+2026/04/02  Added reset bill and exit confirmation for MS5
 -----------------------------------------------------------
 I have done all the coding by myself and only used the project instructions
 and course materials provided by my professor.
@@ -36,9 +36,14 @@ int main(){
         Menu orderMenu("Order Menu", "Back to main menu", 1);
         orderMenu<< "Food";
         orderMenu<< "Drink";
-
+        
+        Menu confirmMenu("You have bills that are not saved. Are you sure you want to exit?", "No", 1);
+        confirmMenu << "Yes";
+        
         size_t sel = 0;
         size_t orderSel = 0;
+        size_t confirmSel = 0;
+
         do{
             sel = cout<< mainMenu;
             if (sel == 1){
@@ -52,14 +57,30 @@ int main(){
                     }
                 } while (orderSel != 0);
             }
+            else if (sel == 2) {
+                order.printBill(cout);
+            }
+            else if (sel == 3) {
+                order.resetBill();
+            }
             else if (sel == 4){
                 order.listFoods();
             }
             else if (sel == 5){
                 order.listDrinks();
             }
-
-        }while (sel != 0);
+            else if (sel == 0) {
+                if (order.hasUnsavedBill()) {
+                    confirmSel = cout << confirmMenu;
+                    if (confirmSel == 1) {
+                        break; 
+                    }
+                }
+                else {
+                    break; 
+                }
+            }
+        } while (true);
     }
     return 0;
 }
