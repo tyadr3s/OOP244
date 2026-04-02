@@ -7,7 +7,7 @@ Author: Carlos Andres Ramirez Moreno, StNo: 120847256, Email: caramirez-moreno@m
 Revision History
 -----------------------------------------------------------
 Date      Reason
-2026/04/02  Implemented ms54 (Display Bill)
+2026/04/02  Added order food option for MS3
 -----------------------------------------------------------
 I have done all the coding by myself and only used the project instructions
 and course materials provided by my professor.
@@ -51,9 +51,6 @@ int main(){
                         order.orderDrink();
                     }
                 } while (orderSel != 0);
-            }
-            else if (sel == 2) {
-                order.printBill(cout);
             }
             else if (sel == 4){
                 order.listFoods();
