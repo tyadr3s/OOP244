@@ -37,7 +37,7 @@ int main(){
         orderMenu<< "Food";
         orderMenu<< "Drink";
         
-        Menu confirmMenu("You have bills that are not saved. Are you sure you want to exit?", "No");
+        Menu confirmMenu("You have bills that are not saved, are you sue you want to exit?", "No");
         confirmMenu << "Yes";
         
         size_t sel = 0;
